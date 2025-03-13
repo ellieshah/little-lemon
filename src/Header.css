@@ -1,0 +1,55 @@
+/* src/Header.css */
+.header {
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: space-between; /* Logo on left, nav on right */
+    align-items: center; /* Vertically center items */
+    background-color: #495e57; 
+    padding: 15px 30px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) 
+  }
+  
+  .logo img {
+    width: 150px; /* Matches your width attribute */
+    height: auto;;
+  }
+  
+  .navigation ul {
+    display: flex;
+    list-style: none;
+    margin:0;
+    padding:0;
+    
+  }
+  
+  .navigation li {
+    margin: 0 20px; /* Space between nav items */
+  }
+  
+  .navigation a {
+    text-decoration: none; /* Remove underline from links */
+    color: #f4ce14; /* Dark color, adjust per mockup */
+    font-size: 16px;
+    font-weight: 500;;
+  }
+  
+  .navigation a:hover {
+    color: #fff; /* White on hover, adjust per design */
+    transition: color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Responsive design for mobile */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column; /* Stack logo and nav on small screens */
+      padding: 10px;;
+    } 
+    .navigation ul {
+      flex-direction: column; /* Stack nav items vertically */
+      align-items: center;
+      margin-top: 15px;
+    }
+  
+    .navigation li {
+      margin: 10px 0; /* Vertical spacing */
+    }
+  }

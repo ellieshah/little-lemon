@@ -1,0 +1,106 @@
+
+.footer {
+    background-color: #ffffff; /* White background */
+    padding: 3rem 0 1rem; /* Vertical and horizontal padding */
+    font-family: karla, sans-serif; /* Clean, default font */
+    color: #333;
+    margin-top: 2rem;;
+  }
+  
+  /* Logo section */
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-between; /* Space between logo and navigation */
+    max-width: 1200px; /* Max width for larger screens */
+    margin: 0 auto; /* Center the footer */
+    padding: 0 1rem; /* Horizontal padding */
+  }
+  .footer-logo {
+   flex: 1 1 200px;
+   margin-bottom: 2rem;;
+  }
+  
+  .footer-logo img {
+    max-width: 150px; /* Logo size */
+    height: auto;
+  }
+  
+  .footer-nav, .footer-contact, .footer-social-media {
+    flex: 1 1 200px; /* Flex-grow, flex-shrink, and base width */
+    margin-bottom: 2rem; /* Space below each section */
+  }
+  
+  /* Contact section */
+  .footer h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem; /* Space below headings */
+    position: relative;
+    padding-bottom: 0.5rem; /* Space below heading */
+  }
+  
+  .footer h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px; /* Line width */
+    height: 2px; /* Line height */
+    background-color: #4f9cf9; /* Line color */
+  }
+  
+  /* Social media section */
+  .footer-nav ul {
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove padding */
+  }
+  
+  .footer-nav a, footer-contact a  {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  .footer-nav a:hover, .footer-contact a:hover {
+    color: #fff; /* Change color on hover */
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center; /* Center-align items */
+    margin-bottom: 0.75rem; /* Space below each item */
+  }
+  .contact-icon, .social-icon {
+    margin-right: 0.5rem; /* Space between icon and text */
+    font-size: 1.2rem;
+  }
+  .social-icons {
+    display: flex; /* Flexbox for social icons */
+    gap: 1rem; /* Space between icons */
+  }
+  .social-icon {
+    font-size: 1.5rem; /* Icon size */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  .social-icon:hover {
+    color: #4f9cf9; /* Change color on hover */
+  }
+  .footer-bottom {
+    text-align: center; /* Center text */
+    padding-top: 1.5rem;
+    margin-top: 1.5rem; /* Space above */
+    border-top: 1px solid rgba(255,255,255,0.1); /* Top border */
+    font-size: 0.875rem; /* Font size */
+    color: #999; /* Text color */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column; /* Stack items vertically */
+    }
+  
+    .footer-logo, .footer-nav, .footer-contact, .footer-social-media {
+      margin-bottom: 1.5rem; /* Space below each section */
+    }
+  }
