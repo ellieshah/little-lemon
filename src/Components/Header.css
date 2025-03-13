@@ -33,7 +33,7 @@
   }
   
   .navigation a:hover {
-    color: blue; /* White on hover, adjust per design */
+    color: #333; /* Change color on hover */
     transition: color 0.3s ease; /* Smooth transition */
   }
   

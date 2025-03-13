@@ -1,0 +1,111 @@
+.main {
+    background-color: #495e57; /* Dark teal, common for restaurant themes; adjust per wireframe */
+    padding: 4rem 2rem; /* Generous padding for a hero section */
+  }
+  
+  /* Hero section: content left, image right */
+  .main-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Vertically center content and image */
+    justify-content: space-between;
+    max-width: 1200px; /* Standard container width */
+    margin: 0 auto; /* Center horizontally */
+    gap: 3rem; /* Space between content and image, adjust per wireframe */
+  }
+  
+  .main-content {
+    flex: 1;
+    min-width: 300px; /* Prevent collapse on smaller screens */
+    color: #ffffff; /* White text on dark background */
+  }
+  
+  .main-content h1 {
+    font-family: Markazi Text, serif; /* Serif font for elegance */
+    font-size: 4rem; /* ~64px, large title */
+    font-weight: 700; /* Bold for prominence */
+    color: #f4ce14; /* Lemon yellow for brand accent */
+    margin: 0 0 0.5rem; /* Tight spacing below title */
+    line-height: 1.1; /* Prevent excessive height */
+  }
+  
+  .main-content h2 {
+    font-family: Markazi Text, serif; /* Consistent font family */
+    font-size: 2rem; /* ~32px, smaller subtitle */
+    font-weight: 500;
+    color: #edefee; /* Off-white for contrast */
+    margin: 0 0 1rem;
+  }
+  .main-content h1, .main-content h2 {
+    gap:5px; /* Space between title and subtitle */
+  }
+  .main-content p {
+    font-family: karla, sans-serif; /* Sans-serif for readability */
+    font-weight: 400; /* Regular weight for body text */
+    font-size: 1rem; /* ~20px, readable body text */
+    color: #edefee;
+    line-height: 1.6;
+    margin: 0 0 2rem; /* Space before button */
+    max-width: 500px; /* Constrain text width for readability */
+  }
+  
+  .reserve-button {
+    background-color: #f4ce14; /* Yellow button */
+    color: #333; /* Dark text for contrast */
+    padding: 1rem 2rem; /* Larger padding for prominence */
+    border: none;
+    border-radius: 8px; /* Rounded per modern design */
+    font-size: 1.25rem; /* ~20px */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .reserve-button:hover {
+    background-color: #e0b911; /* Darker yellow on hover */
+  }
+  
+  .main-image {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .main-image img {
+    width: 100%;
+    max-width: 400px; /* Cap image size, adjust per wireframe */
+    height: auto;
+    border-radius: 16px; /* More pronounced rounding for style */
+    object-fit: cover;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .main-hero {
+      flex-direction: column;
+      text-align: center; /* Center text on mobile */
+      gap: 2rem; /* Smaller gap when stacked */
+    }
+  
+    .main-content h1 {
+      font-size: 3.5rem; /* Scale down for mobile, ~42px */
+    }
+  
+    .main-content h2 {
+      font-size: 1.5rem; /* ~24px */
+    }
+  
+    .main-content p {
+      font-size: 1rem; /* ~16px */
+      max-width: none; /* Full width on mobile */
+    }
+  
+    .reserve-button {
+      width: 100%;
+      max-width: 300px; /* Limit button width */
+      margin: 0 auto; /* Center button */
+    }
+  
+    .main-image img {
+      max-width: 100%; /* Full width on mobile */
+    }
+  }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.css'; 
+import './Footer.css';  // Assuming you have a CSS file for styling 
 
 // Import social media icons from a library like react-icons
 // npm install react-icons --save
@@ -16,7 +16,6 @@ const Footer = () => {
 
         {/* Doormat Navigation */}
         <div className="footer-nav">
-          <h3>Navigation</h3>
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
@@ -28,7 +27,6 @@ const Footer = () => {
 
         {/* Contact Information */}
         <div className="footer-contact">
-          <h3>Contact Us</h3>
           <div className="contact-item">
             <FaEnvelope className="contact-icon" />
             <a href="mailto:info@yourcompany.com">info@littlelemon.com</a>
@@ -41,7 +39,6 @@ const Footer = () => {
 
         {/* Social Media */}
         <div className="footer-social">
-          <h3>Follow Us</h3>
           <div className="social-icons">
             <a href="https://facebook.com/yourcompany" target="_blank" rel="noopener noreferrer">
               <FaFacebook className="social-icon" />
@@ -55,7 +52,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Little Lemon. All rights reserved.</p>
       </div>
     </footer>
   );
