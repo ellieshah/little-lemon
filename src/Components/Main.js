@@ -20,7 +20,7 @@ const Main = () => {
           </button>
         </div>
         <div className="main-image">
-          <img src="/restaurantfood.jpg" alt="Restaurant Food" />
+          <img src="/restauranfood.jpg" alt="Restaurant Food" />
         </div>
       </section>
     </main>

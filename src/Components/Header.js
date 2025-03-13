@@ -5,6 +5,7 @@ import logo from './logo.png'; // Replace with your logo path
 const Header = () => {
     return (
         <header className="header">
+            <div className="header-content">
             <div className="logo">
                 <img src={logo} alt="Little Lemon Logo" />
             </div>
@@ -18,6 +19,7 @@ const Header = () => {
                     <li><a href="#login">Login</a></li>
                 </ul>
             </nav>
+        </div>
         </header>
     );
 };
