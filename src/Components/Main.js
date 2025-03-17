@@ -1,9 +1,12 @@
 import React from 'react';
 import './Main.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Main = () => {
+  const navigate = useNavigate(); // Hook for navigation
+
   const handleReserve = () => {
-    alert('Table reserved!');
+    navigate('/reservations'); // Navigate to BookingPage
   };
 
   return (

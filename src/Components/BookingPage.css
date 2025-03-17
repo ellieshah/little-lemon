@@ -1,0 +1,25 @@
+.booking-page {
+    padding: 4rem 2rem; /* Match Main’s padding */
+    max-width: 1200px; /* Align with Header and Main */
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .booking-header h1 {
+    font-size: 2.5rem;
+    color: #495e57; /* Match Main’s teal */
+    margin-bottom: 1rem;
+  }
+  
+  .booking-header p,
+  .booking-footer p {
+    font-size: 1.25rem;
+    color: #333;
+    margin: 0 0 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .booking-page {
+      padding: 2rem 1rem;
+    }
+  }
