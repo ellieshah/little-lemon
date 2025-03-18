@@ -2,6 +2,7 @@ import React from 'react';
 import './Main.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
+
 const Main = () => {
   const navigate = useNavigate(); // Hook for navigation
 

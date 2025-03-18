@@ -1,16 +1,16 @@
 .booking-form {
     display: grid;
-    max-width: 200px; /* Per instructions */
-    gap: 20px; /* Space between form elements */
+    max-width: 400px; 
+    gap: 20px; /* This is the Space between form elements */
     padding: 20px;
-    background-color: #f9f9f9; /* Light background */
+    background-color: #495E57; 
     border-radius: 8px;
   }
   
   .booking-form label {
-    font-family: 'Karla', sans-serif; /* Match Header */
+    font-family: 'Karla', sans-serif; 
     font-size: 16px;
-    color: #333;
+    color: #fff;
   }
   
   .booking-form input,
@@ -23,7 +23,7 @@
   }
   
   .booking-form input[type="submit"] {
-    background-color: #f4ce14; /* Yellow from Main */
+    background-color: #f4ce14; 
     color: #333;
     border: none;
     padding: 10px;
@@ -33,5 +33,5 @@
   }
   
   .booking-form input[type="submit"]:hover {
-    background-color: #e0b911; /* Darker yellow */
+    background-color: #e0b911; 
   }

@@ -68,6 +68,7 @@ const BookingForm = () => {
       >
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
+        <option value="Graduation">Graduation</option>
       </select>
       <input type="submit" value="Make Your Reservation" />
     </form>
