@@ -1,0 +1,129 @@
+.specials-section {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.specials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.specials-section h2 {
+    font-family: 'Markazi Text', serif;
+    font-weight: 600;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 3rem;
+    margin-top: 4rem;
+}
+
+.specials-online-button {
+    background-color: #f4ce14;
+    color: #333;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-content: right;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.specials-online-button:hover {
+    background-color: #e0b911;
+}
+
+.specials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items:left;
+}
+
+.special-item {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: grid;
+    flex-direction: column;
+    align-items: left;
+    width: 300px;
+    height: 500px;
+}
+
+.special-item:hover {
+    transform: translateY(-5px);
+}
+
+.special-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.special-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.special-item h3 {
+    font-family: 'Markazi Text', serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: auto.5rem;
+}
+
+.special-item p {
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.special-item .price {
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+    font-weight: 800; /* Make price bold */
+    color: #EE9972;
+}
+
+@media (max-width: 768px) {
+    .specials {
+        padding: 2rem 1rem;
+    }
+
+    .specials h2 {
+        font-size: 2rem;
+    }
+
+    .specials-online-button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .special-item {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .special-item img {
+        height: 200px;
+    }
+}

@@ -3,7 +3,7 @@ import './About.css';
 
 const About = () => {
     return (
-        <section className="about-section">
+        <section className="about-section" role="region" aria-label="about">
             <div className="about-content">
                 <div className="about-text">
                     <h1>Little Lemon</h1>

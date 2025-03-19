@@ -1,19 +1,16 @@
 .main {
-    background-color: #495e57; /* Dark teal, common for restaurant themes; adjust per wireframe */
-    padding: 4rem 2rem; /* Generous padding for a hero section */
+  background-color:#495e57;
+  padding: 3rem 1rem; /* Generous padding for a hero section */
   }
-  
   /* Hero section: content left, image right */
   .main-hero {
     display: flex;
-    flex-wrap: wrap;
     align-items: center; /* Vertically center content and image */
     justify-content: space-between;
     max-width: 1200px; /* Standard container width */
     margin: 0 auto; /* Center horizontally */
-    gap: 3rem; /* Space between content and image, adjust per wireframe */
+    gap: 2rem; /* Space between content and image, adjust per wireframe */
   }
-  
   .main-content {
     flex: 1;
     min-width: 300px; /* Prevent collapse on smaller screens */
@@ -21,7 +18,7 @@
   }
   
   .main-content h1 {
-    font-family: Markazi Text, serif; /* Serif font for elegance */
+    font-family: Markazi Text, serif; 
     font-size: 4rem; /* ~64px, large title */
     font-weight: 700; /* Bold for prominence */
     color: #f4ce14; /* Lemon yellow for brand accent */
@@ -34,19 +31,19 @@
     font-size: 2rem; /* ~32px, smaller subtitle */
     font-weight: 600;
     color: #edefee; /* Off-white for contrast */
-    margin: 0 0 1rem;
+    margin: 0 0 3rem;
   }
   .main-content h1, .main-content h2 {
-    gap:5px; /* Space between title and subtitle */
+    gap: 0.25rem; /* Space between title and subtitle */
   }
   .main-content p {
     font-family: karla, sans-serif; /* Sans-serif for readability */
     font-weight: 400; /* Regular weight for body text */
-    font-size: 1rem; /* ~20px, readable body text */
+    font-size: 1.2rem; /* ~20px, readable body text */
     color: #edefee;
     line-height: 1.6;
-    margin: 0 0 2rem; /* Space before button */
-    max-width: 500px; /* Constrain text width for readability */
+    margin: 0 0 4rem; /* Space before button */
+    max-width: 300px; /* Constrain text width for readability */
   }
   
   .reserve-button {
@@ -66,16 +63,18 @@
   }
   
   .main-image {
-    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     max-width: 400px;
   }
   
   .main-image img {
     width: 100%;
-    max-width: 400px; /* Cap image size, adjust per wireframe */
+    max-width: 500px; /* Cap image size, adjust per wireframe */
     height: auto;
     border-radius: 16px; /* More pronounced rounding for style */
-    object-fit: cover;
+    object-fit: cover; /* Cover the area without distortion */
   }
   
   /* Responsive adjustments */

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';  // Assuming you have a CSS file for styling 
+import { Link } from 'react-router-dom';
 
 // Import social media icons from a library like react-icons
 // npm install react-icons --save
@@ -17,11 +18,11 @@ const Footer = () => {
         {/* Doormat Navigation */}
         <div className="footer-nav">
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/services">Menu</a></li>
-            <li><a href="/products">Reservations</a></li>
-            <li><a href="/blog">Login</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/menu">Menu</Link></li>
+            <li><Link to="/reservations">Reservations</Link></li>
+            <li><Link to="/login">Login</Link></li>
           </ul>
         </div>
 
@@ -29,7 +30,7 @@ const Footer = () => {
         <div className="footer-contact">
           <div className="contact-item">
             <FaEnvelope className="contact-icon" />
-            <a href="mailto:info@yourcompany.com">info@littlelemon.com</a>
+            <a href="mailto:info@littlelemon.com">info@littlelemon.com</a>
           </div>
           <div className="contact-item">
             <FaPhone className="contact-icon" />
@@ -40,10 +41,10 @@ const Footer = () => {
         {/* Social Media */}
         <div className="footer-social">
           <div className="social-icons">
-            <a href="https://facebook.com/yourcompany" target="_blank" rel="noopener noreferrer">
+            <a href="https://facebook.com/littlelemon" target="_blank" rel="noopener noreferrer">
               <FaFacebook className="social-icon" />
             </a>
-            <a href="https://instagram.com/yourcompany" target="_blank" rel="noopener noreferrer">
+            <a href="https://instagram.com/littlelemon" target="_blank" rel="noopener noreferrer">
               <FaInstagram className="social-icon" />
             </a>
           </div>
