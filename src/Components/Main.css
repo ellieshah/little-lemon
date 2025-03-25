@@ -1,6 +1,6 @@
 .main {
-  background-color:#495e57;
-  padding: 3rem 1rem; /* Generous padding for a hero section */
+  background-color: #495e57; /* Dark teal background */
+  padding: 4rem 2rem; /* Padding on top and bottom */
   }
   /* Hero section: content left, image right */
   .main-hero {
@@ -9,7 +9,7 @@
     justify-content: space-between;
     max-width: 1200px; /* Standard container width */
     margin: 0 auto; /* Center horizontally */
-    gap: 2rem; /* Space between content and image, adjust per wireframe */
+    gap: 0.6rem; /* Space between content and image, adjust per wireframe */
   }
   .main-content {
     flex: 1;

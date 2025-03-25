@@ -1,13 +1,62 @@
-import React, { useState } from 'react';
-import './BookingForm.css'; // We’ll create this next
+import React, { useState, useEffect, useCallback } from 'react';
+import './BookingForm.css';
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
     date: '',
-    time: '17:00', // Default value
+    time: '',
     guests: 1,
-    occasion: 'Birthday', // Default value
+    occasion: 'Birthday',
   });
+
+  const [availableTimes, setAvailableTimes] = useState([]);
+
+  const getTodayDate = () => {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  };
+
+
+  const initializeTimes = useCallback(async () => {
+    try {
+      const today = getTodayDate();
+      console.log('Fetching times for today:', today);
+      const times = await window.fetchData(today);
+      console.log('Times fetched:', times);
+      setAvailableTimes(times || []);
+      return times;
+    } catch (error) {
+      console.error('Error initializing times:', error);
+      setAvailableTimes([]);
+      return [];
+    }
+  }, []);
+
+  const updateTimes = async (selectedDate) => {
+    try {
+      console.log('Fetching times for date:', selectedDate);
+      const times = await window.fetchData(selectedDate);
+      console.log('Times fetched:', times);
+      setAvailableTimes(times || []);
+      return times;
+    } catch (error) {
+      console.error('Error updating times:', error);
+      setAvailableTimes([]);
+      return [];
+    }
+  };
+
+  useEffect(() => {
+    initializeTimes();
+  }, [initializeTimes]);
+
+  useEffect(() => {
+    if (formData.date) {
+      updateTimes(formData.date);
+    } else {
+      setAvailableTimes([]);
+    }
+  }, [formData.date]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,56 +65,28 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Reservation made for ${formData.guests} on ${formData.date} at ${formData.time} for ${formData.occasion}`);
-    // Add real submission logic later (e.g., API call)
+    alert(`Reservation made for ${formData.guests} guests on ${formData.date} at ${formData.time} for ${formData.occasion}`);
   };
+  useEffect(() => {
+    console.log('Current availableTimes:', availableTimes);
+  }, [availableTimes]);
 
   return (
     <form className="booking-form" onSubmit={handleSubmit}>
       <label htmlFor="res-date">Choose date</label>
-      <input
-        type="date"
-        id="res-date"
-        name="date"
-        value={formData.date}
-        onChange={handleChange}
-        required
-      />
+      <input type="date" id="res-date" name="date" value={formData.date} onChange={handleChange} required />
       <label htmlFor="res-time">Choose time</label>
-      <select
-        id="res-time"
-        name="time"
-        value={formData.time}
-        onChange={handleChange}
-        required
-      >
-        <option value="17:00">17:00</option>
-        <option value="18:00">18:00</option>
-        <option value="19:00">19:00</option>
-        <option value="20:00">20:00</option>
-        <option value="21:00">21:00</option>
-        <option value="22:00">22:00</option>
+      <select id="res-time" name="time" value={formData.time} onChange={handleChange} required disabled={!availableTimes.length}>
+        {availableTimes.length > 0 ? (
+          availableTimes.map((time) => <option key={time} value={time}>{time}</option>)
+        ) : (
+          <option value="">No available times</option>
+        )}
       </select>
       <label htmlFor="guests">Number of guests</label>
-      <input
-        type="number"
-        id="guests"
-        name="guests"
-        placeholder="1"
-        min="1"
-        max="10"
-        value={formData.guests}
-        onChange={handleChange}
-        required
-      />
+      <input type="number" id="guests" name="guests" min="1" max="10" value={formData.guests} onChange={handleChange} required />
       <label htmlFor="occasion">Occasion</label>
-      <select
-        id="occasion"
-        name="occasion"
-        value={formData.occasion}
-        onChange={handleChange}
-        required
-      >
+      <select id="occasion" name="occasion" value={formData.occasion} onChange={handleChange} required>
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
         <option value="Graduation">Graduation</option>
