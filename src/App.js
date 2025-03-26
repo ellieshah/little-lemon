@@ -7,7 +7,6 @@ import About from './Components/About';
 import BookingPage from './Components/BookingPage';
 import Specials from './Components/Specials';
 import { Routes, Route } from 'react-router-dom';
-import ConfirmedBooking from './Components/ConfirmedBooking';
 
 function App() {
   return (
@@ -17,8 +16,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/about" element={<About />} />
         <Route path="/menu" element={<Specials />} />
-        <Route path="/reservations" element={<BookingPage />} />
-        <Route path="/confirmed" element={<ConfirmedBooking />} />
+        <Route path="/reservations" element={< Main showBookingForm={true} />} />
         <Route path="/order-online" element={<div>Order Online</div>} />
         <Route path="/login" element={<div>Login</div>} />
       </Routes>

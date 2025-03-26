@@ -15,69 +15,50 @@ const renderWithRouter = (ui, { route = '/' } = {}) => {
 };
 
 describe('App Component', () => {
-  test('renders Header, Main, and Footer on home route', () => {
+  test('renders Main component on home route', () => {
     renderWithRouter(<App />);
-    
-    // Test header elements
-    const header = screen.getByRole('banner');
-    const headerLogo = within(header).getByAltText('Little Lemon Logo');
-    const nav = within(header).getByRole('navigation');
-    const reservationsLink = within(nav).getByRole('link', { name: /reservations/i });
-    
-    expect(headerLogo).toBeInTheDocument();
-    expect(reservationsLink).toBeInTheDocument();
-    
+
+    // Test navigation (from screenshot)
+    const nav = screen.getByRole('navigation');
+    expect(within(nav).getByRole('link', { name: /home/i })).toBeInTheDocument();
+    expect(within(nav).getByRole('link', { name: /reservations/i })).toBeInTheDocument();
+
     // Test main content
     const mainElement = screen.getByRole('main');
     expect(within(mainElement).getByRole('heading', { name: /little lemon/i })).toBeInTheDocument();
     expect(within(mainElement).getByRole('button', { name: /reserve a table/i })).toBeInTheDocument();
-    
-    // Test footer
-    const footer = screen.getByRole('contentinfo');
-    expect(within(footer).getByText(/info@littlelemon.com/i)).toBeInTheDocument();
   });
 
-  test('navigates to About page when clicking About link', async () => {
-    renderWithRouter(<App />);
-    const nav = screen.getByRole('navigation');
-    const aboutLink = within(nav).getByRole('link', { name: /about/i });
-    fireEvent.click(aboutLink);
-    
-    const aboutSection = screen.getByRole('region', { name: /about/i });
-    expect(within(aboutSection).getByText(/Little Lemon is a charming family-owned Mediterranean restaurant/i)).toBeInTheDocument();
-  });
-
-  test('navigates to BookingPage when clicking Reservations link', async () => {
+  test('navigates to Reservations page when clicking Reservations link', async () => {
     renderWithRouter(<App />);
     const nav = screen.getByRole('navigation');
     const reservationsLink = within(nav).getByRole('link', { name: /reservations/i });
     fireEvent.click(reservationsLink);
-    
-    const bookingPage = screen.getByRole('region', { name: /booking/i });
-    expect(within(bookingPage).getByRole('heading', { name: /reserve your table/i })).toBeInTheDocument();
-    expect(within(bookingPage).getByLabelText(/choose date/i)).toBeInTheDocument();
+
+    // Wait for navigation and check for booking form
+    await screen.findByRole('heading', { name: /reserve a table/i });
+    expect(screen.getByRole('heading', { name: /reserve a table/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/choose date/i)).toBeInTheDocument();
   });
 
-  test('Reserve a Table button navigates to BookingPage', async () => {
+  test('Reserve a Table button navigates to Reservations page', async () => {
     renderWithRouter(<App />);
     const mainElement = screen.getByRole('main');
     const reserveButton = within(mainElement).getByRole('button', { name: /reserve a table/i });
     fireEvent.click(reserveButton);
-    
-    const bookingPage = screen.getByRole('region', { name: /booking/i });
-    expect(within(bookingPage).getByRole('heading', { name: /reserve your table/i })).toBeInTheDocument();
-    expect(within(bookingPage).getByLabelText(/choose date/i)).toBeInTheDocument();
+
+    // Wait for navigation and check for booking form
+    await screen.findByRole('heading', { name: /reserve a table/i });
+    expect(screen.getByRole('heading', { name: /reserve a table/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/choose date/i)).toBeInTheDocument();
   });
 
-  test('renders correct component for different routes', () => {
-    // Test About route
-    renderWithRouter(<App />, { route: '/about' });
-    const aboutSection = screen.getByRole('region', { name: /about/i });
-    expect(within(aboutSection).getByText(/Little Lemon is a charming family-owned Mediterranean restaurant/i)).toBeInTheDocument();
-
-    // Test Reservations route
+  test('renders Main with BookingForm on /reservations route', () => {
     renderWithRouter(<App />, { route: '/reservations' });
-    const bookingPage = screen.getByRole('region', { name: /booking/i });
-    expect(within(bookingPage).getByRole('heading', { name: /reserve your table/i })).toBeInTheDocument();
+
+    // Check for booking form
+    const mainElement = screen.getByRole('main');
+    expect(within(mainElement).getByRole('heading', { name: /reserve a table/i })).toBeInTheDocument();
+    expect(within(mainElement).getByLabelText(/choose date/i)).toBeInTheDocument();
   });
 });

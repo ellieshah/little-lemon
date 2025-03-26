@@ -1,21 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Main.css';
 import { useNavigate } from 'react-router-dom';
 import BookingForm from './BookingForm';
 
-const Main = ({ showBookingForm = false }) => { // Accept showBookingForm prop
+const Main = ({ showBookingForm = false }) => {
   const navigate = useNavigate();
+  const [isConfirmed, setIsConfirmed] = useState(false);
+  const [isApiLoaded, setIsApiLoaded] = useState(false);
+
+  useEffect(() => {
+    const checkApiLoaded = () => {
+      if (window.submitAPI) {
+        setIsApiLoaded(true);
+      } else {
+        setTimeout(checkApiLoaded, 100);
+      }
+    };
+    checkApiLoaded();
+  }, []);
 
   const handleReserve = () => {
     navigate('/reservations');
   };
 
   const submitForm = async (formData) => {
+    if (!isApiLoaded) {
+      alert('API not loaded yet');
+      return;
+    }
     try {
-      const result = await window.submitAPI(formData); // Use window.submitAPI from api.js
-      console.log('Submit API result:', result); // Debug
+      const result = await window.submitAPI(formData);
+      console.log('Submit API result:', result);
       if (result === true) {
-        navigate('/confirmed'); // Navigate to confirmation page
+        setIsConfirmed(true);
       } else {
         alert('Booking failed. Please try again.');
       }
@@ -25,12 +42,26 @@ const Main = ({ showBookingForm = false }) => { // Accept showBookingForm prop
     }
   };
 
+  const closePopup = () => {
+    setIsConfirmed(false);
+    setTimeout(() => navigate('/'), 300);
+  };
+
   return (
     <main className="main">
       {showBookingForm ? (
         <section className="booking-section">
           <h1>Reserve a Table</h1>
-          <BookingForm submitForm={submitForm} /> {/* Render BookingForm with submitForm prop */}
+          <BookingForm submitForm={submitForm} />
+          {isConfirmed && (
+            <div className="popup-overlay">
+              <div className="popup-content">
+                <h2>Booking Confirmed!</h2>
+                <p>Your reservation has been successfully made. We look forward to seeing you!</p>
+                <button onClick={closePopup}>Close</button>
+              </div>
+            </div>
+          )}
         </section>
       ) : (
         <>
