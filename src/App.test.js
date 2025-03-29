@@ -1,18 +1,23 @@
 import React from 'react';
 import { render, screen, fireEvent, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
 import App from './App';
 import '@testing-library/jest-dom';
+import { fetchData } from './api';
 
-// Helper function to render components with router
+// Helper function to render components with router and ChakraProvider
 const renderWithRouter = (ui, { route = '/' } = {}) => {
   window.history.pushState({}, 'Test page', route);
   return render(
-    <MemoryRouter initialEntries={[route]}>
-      {ui}
-    </MemoryRouter>
+    <ChakraProvider>
+      <MemoryRouter initialEntries={[route]}>
+        {ui}
+      </MemoryRouter>
+    </ChakraProvider>
   );
 };
+
 
 describe('App Component', () => {
   test('renders Main component on home route', () => {
@@ -27,6 +32,11 @@ describe('App Component', () => {
     const mainElement = screen.getByRole('main');
     expect(within(mainElement).getByRole('heading', { name: /little lemon/i })).toBeInTheDocument();
     expect(within(mainElement).getByRole('button', { name: /reserve a table/i })).toBeInTheDocument();
+  });
+  
+  // Cleanup mocks after each test
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   test('navigates to Reservations page when clicking Reservations link', async () => {

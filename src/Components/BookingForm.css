@@ -17,7 +17,6 @@
   .booking-form select {
     padding: 8px;
     font-size: 16px;
-    border: 1px solid #ccc;
     border-radius: 4px;
     font-family: 'Karla', sans-serif;
   }
@@ -34,4 +33,22 @@
   
   .booking-form input[type="submit"]:hover {
     background-color: #e0b911; 
+  }
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+  .booking-section h1 {
+    color: #fff;
+    font-size: 2rem;
+    font-family: "Markazi"
+  }
+  .popup-content {
+    color: #fff;
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+  }
+  .booking-section {
+    background-color: #495E57;
+    padding: 3px;
   }

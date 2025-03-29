@@ -1,28 +1,26 @@
 import React from 'react';
-import './App.css';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import Main from './Components/Main';
-import About from './Components/About';
-import BookingPage from './Components/BookingPage';
-import Specials from './Components/Specials';
 import { Routes, Route } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
+import Header from './Components/Header';
+import Main from './Components/Main';
+import Footer from './Components/Footer';
+import BookingPage from './Components/BookingPage';
+import About from './Components/About';
+import Specials from './Components/Specials';
 
-function App() {
+const App = () => {
   return (
-    <div className="app-container">
+    <ChakraProvider>
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/reservations" element={<BookingPage />} />
         <Route path="/about" element={<About />} />
-        <Route path="/menu" element={<Specials />} />
-        <Route path="/reservations" element={< Main showBookingForm={true} />} />
-        <Route path="/order-online" element={<div>Order Online</div>} />
-        <Route path="/login" element={<div>Login</div>} />
+        <Route path="/specials" element={<Specials />} />
       </Routes>
       <Footer />
-    </div>
+    </ChakraProvider>
   );
-}
+};
 
 export default App;
