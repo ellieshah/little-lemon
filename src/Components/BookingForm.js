@@ -72,9 +72,9 @@ const BookingForm = ({ submitForm }) => {
       return;
     }
     try {
-      console.log ('Fetching times for date:', selectedDate); //Debug log
+      console.log ('Fetching times for date:', selectedDate);
       const times = await fetchData(selectedDate);
-      console.log ('Fetched times:', times); //Debug log
+      console.log ('Fetched times:', times);
       setAvailableTimes(times || []);
       setError(null);
     } catch (error) {

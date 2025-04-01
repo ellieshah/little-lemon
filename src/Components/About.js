@@ -8,15 +8,15 @@ import {
     Image,
     VStack,
 } from '@chakra-ui/react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
     const navigate = useNavigate ();
 
 return (
-    <Box as="main" py={12}>
+    <Box as="main" py={20}>
         <Container maxW="container.lg">
-            <Box as="section" mb={12}>
+            <Box as="section" mb={24}>
                 <Flex direction={{base: 'column', md:'row'}} align="center" gap={8}>
                     <VStack Flex="1" align={{base: 'center', md:'flex-start'}} textAlign={{base:'center', md:'left'}} spacing={4}>
                         <Heading as="h1" size="2xl" fontFamily="Markazi-text, serif" color="#495E57">
@@ -41,8 +41,8 @@ return (
                        objectFit="cover"
                        boxSize="300px"
                        position="relative"
-                       bottom="-12px"
-                       left="16px"
+                       bottom="-30px"
+                       left="27px"
                        />
                        <Image
                        src="/Mario&Adrian2.png"
@@ -64,7 +64,7 @@ return (
         </Container>
     </Box>
 );
-};    
+};
 
 
 

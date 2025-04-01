@@ -46,10 +46,10 @@ const Footer = () => {
           <VStack align={{ base: 'center', md: 'flex-start' }} spacing={2}>
             <Text fontWeight="bold" fontSize="lg" color="#EDEFEE">Follow Us</Text>
             <HStack spacing={4}>
-              <ChakraLink href="https://facebook.com/littlelemon" target="_blank" rel="noopener noreferrer">
+              <ChakraLink href="https://facebook.com/littlelemonrestaurant" target="_blank" rel="noopener noreferrer">
                 <FaFacebook size="24px" color="#EDEFEE" />
               </ChakraLink>
-              <ChakraLink href="https://instagram.com/littlelemon" target="_blank" rel="noopener noreferrer">
+              <ChakraLink href="https://instagram.com/littlelemonrestaurant" target="_blank" rel="noopener noreferrer">
                 <FaInstagram size="24px" color="#EDEFEE" />
               </ChakraLink>
             </HStack>
