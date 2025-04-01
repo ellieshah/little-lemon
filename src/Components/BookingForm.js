@@ -18,6 +18,7 @@ import {
   NumberInputField,
 } from '@chakra-ui/number-input';
 import { Select } from '@chakra-ui/select';
+import { fetchData } from '../api';
 
 const BookingForm = ({ submitForm }) => {
   const [availableTimes, setAvailableTimes] = useState([]);
@@ -28,20 +29,20 @@ const BookingForm = ({ submitForm }) => {
 
   // Check if API is loaded
   useEffect(() => {
-    const checkApiLoaded = () => {
-      if (window.fetchData) {
-        setIsApiLoaded(true);
+  const checkApiLoaded = () => {
+    if (fetchData) {
+      setIsApiLoaded(true);
+    } else {
+      if (apiLoadAttempts < MAX_API_LOAD_ATTEMPTS) {
+        setApiLoadAttempts(prev => prev + 1);
+        setTimeout(checkApiLoaded, 100);
       } else {
-        if (apiLoadAttempts < MAX_API_LOAD_ATTEMPTS) {
-          setApiLoadAttempts(prev => prev + 1);
-          setTimeout(checkApiLoaded, 100);
-        } else {
-          setError('API failed to load. Please refresh the page and try again.');
-        }
+        setError('API failed to load. Please refresh the page and try again.');
       }
-    };
-    checkApiLoaded();
-  }, [apiLoadAttempts]);
+    }
+  };
+  checkApiLoaded();
+ }, [apiLoadAttempts]);
 
   const getTodayDate = () => {
     const today = new Date();
@@ -55,7 +56,7 @@ const BookingForm = ({ submitForm }) => {
     }
     try {
       const today = getTodayDate();
-      const times = await window.fetchData(today);
+      const times = await fetchData(today);
       setAvailableTimes(times || []);
       setError(null);
     } catch (error) {
@@ -71,7 +72,9 @@ const BookingForm = ({ submitForm }) => {
       return;
     }
     try {
-      const times = await window.fetchData(selectedDate);
+      console.log ('Fetching times for date:', selectedDate); //Debug log
+      const times = await fetchData(selectedDate);
+      console.log ('Fetched times:', times); //Debug log
       setAvailableTimes(times || []);
       setError(null);
     } catch (error) {
