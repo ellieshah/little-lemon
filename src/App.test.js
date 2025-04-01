@@ -1,23 +1,30 @@
 import React from 'react';
 import { render, screen, fireEvent, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react';
 import App from './App';
 import '@testing-library/jest-dom';
 import { fetchData } from './api';
 
-// Helper function to render components with router and ChakraProvider
+// Mock Chakra UI
+jest.mock('@chakra-ui/react', () => ({
+  ChakraProvider: ({ children }) => children,
+  // Add any other Chakra components used directly in tests
+  // For example:
+  Box: ({ children, ...props }) => <div {...props}>{children}</div>,
+  Heading: ({ children, ...props }) => <h2 {...props}>{children}</h2>,
+  Button: ({ children, ...props }) => <button {...props}>{children}</button>,
+  // Add more as needed
+}));
+
+// Helper function to render components with router
 const renderWithRouter = (ui, { route = '/' } = {}) => {
   window.history.pushState({}, 'Test page', route);
   return render(
-    <ChakraProvider>
-      <MemoryRouter initialEntries={[route]}>
-        {ui}
-      </MemoryRouter>
-    </ChakraProvider>
+    <MemoryRouter initialEntries={[route]}>
+      {ui}
+    </MemoryRouter>
   );
 };
-
 
 describe('App Component', () => {
   test('renders Main component on home route', () => {
