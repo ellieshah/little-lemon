@@ -19,7 +19,7 @@ const Header = () => {
             <ChakraLink as={Link} to="/menu" fontWeight="medium">
               Menu
             </ChakraLink>
-            <ChakraLink as={Link} to="/reservations" fontWeight="medium">
+            <ChakraLink as={Link} to="/reservations" fontWeight="medium" data-testid="reservations-link">
               Reservations
             </ChakraLink>
             <ChakraLink as={Link} to="/order-online" fontWeight="medium">
