@@ -14,7 +14,7 @@ const BookingPage = () => {
     }
   };
   return (
-    <section className="booking-page" role="region" aria-label="booking">
+    <section className="booking-page" aria-label="booking">
       <div className="booking-header">
         <h1>Reserve Your Table</h1>
       </div>
